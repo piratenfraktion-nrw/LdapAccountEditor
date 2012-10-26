@@ -53,13 +53,13 @@ class AccountController < ApplicationController
       end
 
       op = [
-        [:replace, :nick, [params[:nick].force_encoding('ASCII-8BIT')]],
-        [:replace, :telephoneNumber, [params[:telephoneNumber].force_encoding('ASCII-8BIT')]],
-        [:replace, :facsimileTelephoneNumber, [params[:facsimileTelephoneNumber].force_encoding('ASCII-8BIT')]],
-        [:replace, :roomNumber, [params[:roomNumber].force_encoding('ASCII-8BIT')]],
-        [:replace, :mobile, [params[:mobile].force_encoding('ASCII-8BIT')]],
-        [:replace, :displayName, [params[:displayName].force_encoding('ASCII-8BIT')]],
-        [:replace, :userPassword, [password.force_encoding('ASCII-8BIT')]]
+        [:replace, :nick, [params[:nick]]],
+        [:replace, :telephoneNumber, [params[:telephoneNumber]]],
+        [:replace, :facsimileTelephoneNumber, [params[:facsimileTelephoneNumber]]],
+        [:replace, :roomNumber, [params[:roomNumber]]],
+        [:replace, :mobile, [params[:mobile]]],
+        [:replace, :displayName, [params[:displayName]]],
+        [:replace, :userPassword, [password]]
       ]
 
       ldap.modify :dn => @user[:entry].dn, :operations => op
@@ -71,6 +71,7 @@ class AccountController < ApplicationController
         puts "DN: #{entry.dn}"
         session[:user][:entry] = entry
       end
+      flash[:error] "Daten erfolgreich aktualisiert!"
     rescue
       flash[:error] = "Passwort stimmt nicht"
     end

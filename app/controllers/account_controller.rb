@@ -71,7 +71,7 @@ class AccountController < ApplicationController
         puts "DN: #{entry.dn}"
         session[:user][:entry] = entry
       end
-      flash[:error] "Daten erfolgreich aktualisiert!"
+      flash[:error] = "Daten erfolgreich aktualisiert!"
     rescue
       flash[:error] = "Passwort stimmt nicht"
     end

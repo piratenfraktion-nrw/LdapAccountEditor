@@ -54,7 +54,7 @@
   <tr>
     <td><%= label_tag :displayName, "Angeziegter Name" %></td>
     <td>
-      <%= text_field_tag :displayName, @user_entry[:displayName][0].force_encoding('UTF-8')  rescue "") %>
+      <%= text_field_tag :displayName, (@user_entry[:displayName][0].force_encoding('UTF-8')  rescue "") %>
     </td>
   </tr>
   <tr>

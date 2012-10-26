@@ -1,2 +1,58 @@
-ldap_host: 84.246.124.150
-ldap_port: 636
+ldap_host: localhost
+ldap_port: 6636
+
+sections:
+  - label: Deine Daten
+    fields:
+      - name: givenName
+        ldap: givenName
+        label: Vorname
+        editable: false
+        ldap_ignore: true
+      - name: sn
+        label: Nachname
+        editable: false
+        ldap_ignore: true
+      - name: displayName
+        label: Angezeigter Name
+        editable: true
+      - name: nick
+        label: Nickname
+        editable: true
+      - name: telephoneNumber
+        label: Telefonnummer
+        editable: true
+      - name: facsimileTelephoneNumber
+        label: Faxnummer
+        editable: true
+      - name: mobile
+        label: Handynummer
+        editable: true
+      - name: roomNumber
+        label: Raumnummer
+        editable: true
+  - label: Deine Mail Adressen, für weniger oder mehr<br/>Adressen eine Mail an <a href="mailto:it@piratenfraktion-nrw.de">it@piratenfraktion-nrw.de</a> schreiben
+    fields:
+      - name: mail
+        label: Mail
+        editable: false
+        ldap_ignore: true
+  - label: Leer lassen wenn Passwort nicht geändert werden soll
+    fields:
+      - name: newPassword
+        label: Neues Passwort
+        editable: true
+        ldap_ignore: true
+        password: true
+      - name: newPasswordRepeat
+        label: Neues Passwort Wdh.
+        editable: true
+        ldap_ignore: true
+        password: true
+  - label: Aktuelles Passwort zum ändern der Daten eingeben
+    fields:
+      - name: userPassword
+        label: Passwort
+        editable: true
+        ignore_value: true
+        password: true

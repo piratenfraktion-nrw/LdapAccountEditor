@@ -52,26 +52,27 @@ class AccountController < ApplicationController
         end
       end
 
-      op = [
-        [:replace, :nick, [params[:nick]]],
-        [:replace, :telephoneNumber, [params[:telephoneNumber]]],
-        [:replace, :facsimileTelephoneNumber, [params[:facsimileTelephoneNumber]]],
-        [:replace, :roomNumber, [params[:roomNumber]]],
-        [:replace, :mobile, [params[:mobile]]],
-        [:replace, :displayName, [params[:displayName]]],
-        [:replace, :userPassword, [password]]
-      ]
+      op = []
 
-      ldap.modify :dn => @user[:entry].dn, :operations => op
+      op << [:replace, :userPassword, [password]]
+
+      Settings.sections.each do |section|
+        section.fields.each do |field|
+          if !field.ldap_ignore and field.name != "userPassword"
+            op << [:replace, field.name.to_sym, [params[field.name.to_sym]]]
+          end
+        end
+      end
 
       filter = Net::LDAP::Filter.eq("uid", @user[:uid])
       treebase = "dc=piratenfraktion-nrw,dc=de"
 
       ldap.search(:base => treebase, :filter => filter) do |entry|
+        puts ldap.modify :dn => entry.dn, :operations => op
         puts "DN: #{entry.dn}"
         session[:user][:entry] = entry
+        flash[:error] = "Daten erfolgreich aktualisiert!"
       end
-      flash[:error] = "Daten erfolgreich aktualisiert!"
     rescue
       flash[:error] = "Passwort stimmt nicht"
     end

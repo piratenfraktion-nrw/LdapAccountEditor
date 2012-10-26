@@ -13,24 +13,30 @@ class AuthController < ApplicationController
       :userPassword => params[:userPassword]
     }
 
-    ldap = Net::LDAP.new :host => Settings.ldap_host,
-      :port => Settings.ldap_port,
-      :encryption => :simple_tls,
-      :auth => {
-      :method => :simple,
-      :username => "uid=#{@user[:uid]},ou=people,dc=piratenfraktion-nrw,dc=de",
+    begin
+      ldap = Net::LDAP.new :host => Settings.ldap_host,
+        :port => Settings.ldap_port,
+        :encryption => :simple_tls,
+        :auth => {
+        :method => :simple,
+        :username => "uid=#{@user[:uid]},ou=people,dc=piratenfraktion-nrw,dc=de",
       :password => @user[:userPassword]
-    }
+      }
 
-    filter = Net::LDAP::Filter.eq("uid", @user[:uid])
-    treebase = "dc=piratenfraktion-nrw,dc=de"
-    
-    ldap.search(:base => treebase, :filter => filter) do |entry|
-      puts "DN: #{entry.dn}"
-      @user[:entry] = entry
+      throw "Passwort falsch" unless ldap.bind
+      filter = Net::LDAP::Filter.eq("uid", @user[:uid])
+      treebase = "dc=piratenfraktion-nrw,dc=de"
+
+      ldap.search(:base => treebase, :filter => filter) do |entry|
+        puts "DN: #{entry.dn}"
+        @user[:entry] = entry
+      end
+      session[:user] = @user
+      redirect_to :controller => :account, :action => :show
+    rescue
+      flash[:error] = "Passwort und/oder Benutzer falsch"
+      redirect_to :controller => :auth, :action => :login
     end
-    session[:user] = @user
-    redirect_to :controller => :account, :action => :show
   end
 
   def logout

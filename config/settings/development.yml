@@ -1,0 +1,4 @@
+ldap_host: localhost
+ldap_port: 6636
+
+

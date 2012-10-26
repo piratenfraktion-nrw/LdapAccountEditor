@@ -1,5 +1,5 @@
-ldap_host: localhost
-ldap_port: 6636
+ldap_host: 84.246.124.150
+ldap_port: 636
 
 sections:
   - label: Deine Daten

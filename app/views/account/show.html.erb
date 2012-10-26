@@ -12,49 +12,49 @@
   <tr>
     <td>Vorname</td>
     <td>
-      <%= @user_entry[:givenName][0] %>
+      <%= @user_entry[:givenName][0].force_encoding('UTF-8') %>
     </td>
   </tr>
   <tr>
     <td><%= label_tag :sn, "Nachname" %></td>
     <td>
-      <%= @user_entry[:sn][0] %>
+      <%= @user_entry[:sn][0].force_encoding('UTF-8') %>
     </td>
   </tr>
   <tr>
     <td><%= label_tag :nick, "Nickname (Bisher für das Wiki)" %></td>
     <td>
-      <%= text_field_tag :nick, @user_entry[:nick][0] %>
+      <%= text_field_tag :nick, @user_entry[:nick][0].force_encoding('UTF-8') %>
     </td>
   </tr>
   <tr>
     <td><%= label_tag :telephoneNumber, "Telefonnummer" %></td>
     <td>
-      <%= text_field_tag :telephoneNumber, @user_entry[:telephoneNumber][0] %>
+      <%= text_field_tag :telephoneNumber, @user_entry[:telephoneNumber][0].force_encoding('UTF-8') %>
     </td>
   </tr>
   <tr>
     <td><%= label_tag :facsimileTelephoneNumber, "Faxnummer" %></td>
     <td>
-      <%= text_field_tag :facsimileTelephoneNumber, @user_entry[:facsimileTelephoneNumber][0] %>
+      <%= text_field_tag :facsimileTelephoneNumber, @user_entry[:facsimileTelephoneNumber][0].force_encoding('UTF-8') %>
     </td>
   </tr>
   <tr>
     <td><%= label_tag :mobile, "Handynummer" %></td>
     <td>
-      <%= text_field_tag :mobile, @user_entry[:mobile][0] %>
+      <%= text_field_tag :mobile, @user_entry[:mobile][0].force_encoding('UTF-8') %>
     </td>
   </tr>
   <tr>
     <td><%= label_tag :roomNumber, "Raumnummer" %></td>
     <td>
-      <%= text_field_tag :roomNumber, @user_entry[:roomNumber][0] %>
+      <%= text_field_tag :roomNumber, @user_entry[:roomNumber][0].force_encoding('UTF-8') %>
     </td>
   </tr>
   <tr>
     <td><%= label_tag :displayName, "Angeziegter Name" %></td>
     <td>
-      <%= text_field_tag :displayName, @user_entry[:displayName][0] %>
+      <%= text_field_tag :displayName, @user_entry[:displayName][0].force_encoding('UTF-8') %>
     </td>
   </tr>
   <tr>
@@ -66,7 +66,7 @@
     <tr>
       <td>Mail</td>
       <td>
-        <%= mail %>
+        <%= mail.force_encoding('UTF-8') %>
       </td>
     </tr>
   <% end %>

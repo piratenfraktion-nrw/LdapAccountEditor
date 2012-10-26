@@ -1,4 +1,6 @@
-<%= flash[:error] %>
+<div class="flash_error">
+  <%= flash[:error] %>
+</div>
 
 <%= form_tag "/account/update", :method => :post do %>
 <table border="0">
@@ -14,37 +16,43 @@
     </td>
   </tr>
   <tr>
-    <td>Nachname</td>
+    <td><%= label_tag :sn, "Nachname" %></td>
     <td>
       <%= @user_entry[:sn][0] %>
     </td>
   </tr>
   <tr>
-    <td>Nickname (Bisher für das Wiki)</td>
+    <td><%= label_tag :nick, "Nickname (Bisher für das Wiki)" %></td>
     <td>
       <%= text_field_tag :nick, @user_entry[:nick][0] %>
     </td>
   </tr>
   <tr>
-    <td>Telefonnummer</td>
+    <td><%= label_tag :telephoneNumber, "Telefonnummer" %></td>
     <td>
       <%= text_field_tag :telephoneNumber, @user_entry[:telephoneNumber][0] %>
     </td>
   </tr>
   <tr>
-    <td>Faxnummer</td>
+    <td><%= label_tag :facsimileTelephoneNumber, "Faxnummer" %></td>
     <td>
       <%= text_field_tag :facsimileTelephoneNumber, @user_entry[:facsimileTelephoneNumber][0] %>
     </td>
   </tr>
   <tr>
-    <td>Raumnummer</td>
+    <td><%= label_tag :mobile, "Handynummer" %></td>
+    <td>
+      <%= text_field_tag :mobile, @user_entry[:mobile][0] %>
+    </td>
+  </tr>
+  <tr>
+    <td><%= label_tag :roomNumber, "Raumnummer" %></td>
     <td>
       <%= text_field_tag :roomNumber, @user_entry[:roomNumber][0] %>
     </td>
   </tr>
   <tr>
-    <td>Angeziegter Name</td>
+    <td><%= label_tag :displayName, "Angeziegter Name" %></td>
     <td>
       <%= text_field_tag :displayName, @user_entry[:displayName][0] %>
     </td>
@@ -68,13 +76,13 @@
     </td>
   </tr>
   <tr>
-    <td>Neues Passwort</td>
+    <td><%= label_tag :newPassword, "Neues Passwort" %></td>
     <td>
       <%= password_field_tag :newPassword %>
     </td>
   </tr>
   <tr>
-    <td>Neues Passwort Wdh.</td>
+    <td><%= label_tag :newPasswordRepeat, "Neues Passwort Wdh." %></td>
     <td>
       <%= password_field_tag :newPasswordRepeat %>
     </td>
@@ -85,7 +93,7 @@
     </td>
   </tr>
   <tr>
-    <td>Passwort</td>
+    <td><%= label_tag :userPassword, "Passwort" %></td>
     <td>
       <%= password_field_tag :userPassword %>
     </td>

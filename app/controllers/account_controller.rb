@@ -8,6 +8,22 @@ class AccountController < ApplicationController
   def show
     @user = session[:user]
     @user_entry = @user[:entry]
+    ldap = Net::LDAP.new :host => Settings.ldap_host,
+        :port => Settings.ldap_port,
+        :encryption => :simple_tls,
+        :auth => {
+        :method => :simple,
+        :username => "uid=#{@user[:uid]},ou=people,dc=piratenfraktion-nrw,dc=de",
+        :password => @user[:userPassword]
+      }
+
+      filter = Net::LDAP::Filter.eq("uid", @user[:uid])
+      treebase = "dc=piratenfraktion-nrw,dc=de"
+
+      ldap.search(:base => treebase, :filter => filter) do |entry|
+        puts "DN: #{entry.dn}"
+        @user_entry = entry
+      end
 
     render :show
   end
@@ -37,13 +53,13 @@ class AccountController < ApplicationController
       end
 
       op = [
-        [:replace, :nick, [params[:nick]]],
-        [:replace, :telephoneNumber, [params[:telephoneNumber]]],
-        [:replace, :facsimileTelephoneNumber, [params[:facsimileTelephoneNumber]]],
-        [:replace, :roomNumber, [params[:roomNumber]]],
-        [:replace, :mobile, [params[:mobile]]],
-        [:replace, :displayName, [params[:displayName]]],
-        [:replace, :userPassword, [password]]
+        [:replace, :nick, [params[:nick].force_encoding('ASCII-8BIT')]],
+        [:replace, :telephoneNumber, [params[:telephoneNumber].force_encoding('ASCII-8BIT')]],
+        [:replace, :facsimileTelephoneNumber, [params[:facsimileTelephoneNumber].force_encoding('ASCII-8BIT')]],
+        [:replace, :roomNumber, [params[:roomNumber].force_encoding('ASCII-8BIT')]],
+        [:replace, :mobile, [params[:mobile].force_encoding('ASCII-8BIT')]],
+        [:replace, :displayName, [params[:displayName].force_encoding('ASCII-8BIT')]],
+        [:replace, :userPassword, [password.force_encoding('ASCII-8BIT')]]
       ]
 
       ldap.modify :dn => @user[:entry].dn, :operations => op

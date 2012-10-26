@@ -47,6 +47,7 @@ class AccountController < ApplicationController
       if params[:newPassword] != "" 
         if params[:newPassword] == params[:newPasswordRepeat]
           password = '{SHA}' + Base64.encode64(Digest::SHA1.digest(params[:newPassword])).chomp!
+          @user[:userPassword] = params[:newPassword]
         else
           flash[:error] = "Passwort Wiederholung stimmt nicht überein"
         end

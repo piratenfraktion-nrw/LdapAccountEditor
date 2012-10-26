@@ -22,6 +22,9 @@ sections:
       - name: nick
         label: Nickname
         editable: true
+      - name: description
+        label: Beschreibung
+        editable: true
       - name: telephoneNumber
         label: Telefonnummer
         editable: true

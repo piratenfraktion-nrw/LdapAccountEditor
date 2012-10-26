@@ -1,0 +1,13 @@
+<%= form_tag "/auth/auth", :method => :post do %>
+  <p>
+  <%= label_tag :uid, "Benutzername" %>
+  <%= text_field_tag :uid %>
+  </p>
+  <p>
+  <%= label_tag :userPassword, "Passwort" %>
+  <%= password_field_tag :userPassword %>
+  </p>
+  <p>
+  <%= submit_tag "Einloggen" %>
+  </p>
+<% end %>

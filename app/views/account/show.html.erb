@@ -1,0 +1,99 @@
+<%= flash[:error] %>
+
+<%= form_tag "/account/update", :method => :post do %>
+<table border="0">
+  <tr>
+    <td colspan="2">
+      <strong>Deine Daten</strong>
+    </td>
+  </tr> 
+  <tr>
+    <td>Vorname</td>
+    <td>
+      <%= @user_entry[:givenName][0] %>
+    </td>
+  </tr>
+  <tr>
+    <td>Nachname</td>
+    <td>
+      <%= @user_entry[:sn][0] %>
+    </td>
+  </tr>
+  <tr>
+    <td>Nickname (Bisher für das Wiki)</td>
+    <td>
+      <%= text_field_tag :nick, @user_entry[:nick][0] %>
+    </td>
+  </tr>
+  <tr>
+    <td>Telefonnummer</td>
+    <td>
+      <%= text_field_tag :telephoneNumber, @user_entry[:telephoneNumber][0] %>
+    </td>
+  </tr>
+  <tr>
+    <td>Faxnummer</td>
+    <td>
+      <%= text_field_tag :facsimileTelephoneNumber, @user_entry[:facsimileTelephoneNumber][0] %>
+    </td>
+  </tr>
+  <tr>
+    <td>Raumnummer</td>
+    <td>
+      <%= text_field_tag :roomNumber, @user_entry[:roomNumber][0] %>
+    </td>
+  </tr>
+  <tr>
+    <td>Angeziegter Name</td>
+    <td>
+      <%= text_field_tag :displayName, @user_entry[:displayName][0] %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <strong>Deine E-Mail Adressen. Willst du weniger oder mehr? Dann an it@piratenfraktion-nrw.de schreiben.</strong>
+    </td>
+  </tr> 
+  <% @user_entry[:mail].each do |mail| %>
+    <tr>
+      <td>Mail</td>
+      <td>
+        <%= mail %>
+      </td>
+    </tr>
+  <% end %>
+  <tr>
+    <td colspan="2">
+      <strong>Leer lassen wenn Passwort nicht geändert werden soll!</strong>
+    </td>
+  </tr>
+  <tr>
+    <td>Neues Passwort</td>
+    <td>
+      <%= password_field_tag :newPassword %>
+    </td>
+  </tr>
+  <tr>
+    <td>Neues Passwort Wdh.</td>
+    <td>
+      <%= password_field_tag :newPasswordRepeat %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <strong>Aktuelles Passwort zum ändern der Daten eingeben</strong>
+    </td>
+  </tr>
+  <tr>
+    <td>Passwort</td>
+    <td>
+      <%= password_field_tag :userPassword %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <%= submit_tag "Daten aktualisieren" %>
+    </td>
+  </tr>
+</table>
+<% end %>

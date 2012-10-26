@@ -1,4 +1,6 @@
 AccountEditor::Application.routes.draw do
+  get "address_book/show"
+
   get "account/show"
 
   post "account/update"

@@ -47,6 +47,7 @@
           <a class="brand" href="/">AccountEditor</a>
           <div class="container nav-collapse">
             <ul class="nav">
+              <li><%= link_to "Adressbuch", "/address_book/show" unless @user.nil? %></li>
               <li><%= link_to "Ausloggen", "/auth/logout" unless @user.nil? %></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -56,15 +57,13 @@
 
     <div class="container" id="main">
         <div class="row">
-          <div class="span9">
-            <div class="flash_error">
-              <%= flash[:error] %>
-            </div>
-            <%= yield %>
-          </div>
-          <div class="span3">
-
-          </div><!--/span-->
+          <% flash.each do |key, msg| %>
+    <% msg = '<button type="button" class="close" data-dismiss="alert">×</button>'+"<strong>#{msg}</strong>" %>
+    <%= content_tag :div, msg.html_safe, :id => key, :class => [:span12, :alert, "alert_#{key}"] %>
+  <% end %>
+        </div>
+        <div class="row">
+          <%= yield %>
         </div><!--/row-->
 
       <footer>

@@ -1,4 +1,7 @@
 class AuthController < ApplicationController
+  before_filter :check_session, :only => :logout
+
+
   def login
     if session[:user].nil?
       render :login

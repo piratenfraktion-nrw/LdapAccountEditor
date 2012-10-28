@@ -5,6 +5,8 @@ require 'base64'
 
 
 class AccountController < ApplicationController
+  before_filter :check_session
+
   def show
     @user = session[:user]
     @user_entry = @user[:entry]

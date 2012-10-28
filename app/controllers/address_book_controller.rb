@@ -1,4 +1,6 @@
 class AddressBookController < ApplicationController
+  before_filter :check_session
+
   def show
     @user = session[:user]
     @user_entry = @user[:entry]

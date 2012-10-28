@@ -1,3 +1,22 @@
 // Place all the styles related to the AddressBook controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@media print {
+  .navbar {
+    display: none !important;
+  }
+
+  .container,
+  .row,
+  .span12 {
+    widh: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  table { page-break-inside:auto !important; }
+  tr    { page-break-inside:avoid; page-break-after:auto !important; }
+
+}

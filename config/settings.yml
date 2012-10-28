@@ -26,16 +26,16 @@ sections:
         label: Beschreibung
         editable: true
       - name: telephoneNumber
-        label: Telefonnummer
+        label: Telefon
         editable: true
       - name: facsimileTelephoneNumber
-        label: Faxnummer
+        label: Fax
         editable: true
       - name: mobile
-        label: Handynummer
+        label: Handy
         editable: true
       - name: roomNumber
-        label: Raumnummer
+        label: Raum
         editable: true
   - label: Deine Mail Adressen, für weniger oder mehr<br/>Adressen eine Mail an <a href="mailto:it@piratenfraktion-nrw.de">it@piratenfraktion-nrw.de</a> schreiben
     fields:
@@ -63,5 +63,6 @@ sections:
         label: Passwort
         editable: true
         ignore_value: true
+        ldap_ignore: true
         addressbook_ignore: true
         password: true

@@ -1,3 +1,3 @@
 $(document).ready(function() {
-    $('#address-book').dataTable();
+    $('#address-book').tablesorter();
 } );

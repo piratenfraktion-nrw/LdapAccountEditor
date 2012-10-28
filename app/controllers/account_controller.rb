@@ -60,7 +60,15 @@ class AccountController < ApplicationController
       Settings.sections.each do |section|
         section.fields.each do |field|
           if !field.ldap_ignore and field.name != "userPassword"
-            op << [:replace, field.name.to_sym, [params[field.name.to_sym]]]
+            if params[field.name.to_sym].present?
+              if @user[:entry][field.name.to_sym].nil?
+                op << [:add, field.name.to_sym, [params[field.name.to_sym]]]
+              else
+                op << [:replace, field.name.to_sym, [params[field.name.to_sym]]]
+              end
+            elsif !params[field.name.to_sym].present? and (@user[:entry][field.name.to_sym].length > 0)
+              op << [:delete, field.name.to_sym, nil]
+            end
           end
         end
       end

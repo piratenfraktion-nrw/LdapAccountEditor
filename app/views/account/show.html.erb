@@ -9,15 +9,15 @@
           </td>
         </tr>
         <% section.fields.each do |field| %>
-          <% values = @user_entry[field.name.to_sym].length < 1 ? [""] : @user_entry[field.name.to_sym] %> 
+          <% values = @user_entry[field.name].length < 1 ? [""] : @user_entry[field.name] %> 
           <% values.each do |value| %>
             <tr>
-              <td><%= field.label %></td>
+              <td><%= label_tag field.name, field.label %></td>
               <td>
                 <% if field.editable and !field.password %>
-                  <%= text_field_tag field.name.to_sym, ((value.force_encoding('UTF-8') rescue "") unless field.ignore_value) %>
+                  <%= text_field_tag field.name, ((value.force_encoding('UTF-8') rescue "") unless field.ignore_value) %>
                 <% elsif field.password and field.editable %>
-                  <%= password_field_tag field.name.to_sym, ((value.force_encoding('UTF-8') rescue "") unless field.ignore_value) %>
+                  <%= password_field_tag field.name, ((value.force_encoding('UTF-8') rescue "") unless field.ignore_value) %>
                 <% else %>
                   <%= value.force_encoding('UTF-8') %>
                 <% end %>

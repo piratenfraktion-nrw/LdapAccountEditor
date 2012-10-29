@@ -10,16 +10,19 @@
         </tr>
         <% section.fields.each do |field| %>
           <% values = @user_entry[field.name].length < 1 ? [""] : @user_entry[field.name] %> 
-          <% values.each do |value| %>
+          <% values.each_with_index do |value,i| %>
+            <% value = session[:last_params][field.name] unless session[:last_params].nil? %>
             <tr>
               <td><%= label_tag field.name, field.label %></td>
               <td>
                 <% if field.editable and !field.password %>
-                  <%= text_field_tag field.name, ((value.force_encoding('UTF-8') rescue "") unless field.ignore_value) %>
+                  <%= text_field_tag field.name,
+                    ((value.force_encoding('UTF-8') rescue "") unless field.ignore_value) %>
                 <% elsif field.password and field.editable %>
-                  <%= password_field_tag field.name, ((value.force_encoding('UTF-8') rescue "") unless field.ignore_value) %>
+                  <%= password_field_tag field.name,
+                    ((value.force_encoding('UTF-8') rescue "") unless field.ignore_value) %>
                 <% else %>
-                  <%= value.force_encoding('UTF-8') %>
+                  <%= value.force_encoding('UTF-8') rescue @user_entry[field.name][i] %>
                 <% end %>
               </td>
             </tr>
@@ -43,13 +46,13 @@
   <strong>Deine E-Mail Signatur</strong>
   <pre>
     --
-    <%= @user_entry[:cn][0] %>
+    Piratenfraktion im Landtag NRW
     <%= @user_entry[:description][0] %>
 
+    Nick: <%= @user_entry[:nick][0] %>
     Tel.: <%= @user_entry[:telephoneNumber][0] %>
     Fax.: <%= @user_entry[:facsimileTelephoneNumber][0] %>
     Raum: <%= @user_entry[:roomNumber][0] %>
-    Piratenfraktion im Landtag NRW
   </pre>
 </div><!--/span-->
 

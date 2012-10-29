@@ -28,10 +28,12 @@ class AccountController < ApplicationController
       end
 
     render :show
+    session[:last_params] = nil
   end
 
   def update
     @user = session[:user]
+    session[:last_params] = nil
 
     begin
       ldap = Net::LDAP.new :host => Settings.ldap_host,
@@ -84,7 +86,9 @@ class AccountController < ApplicationController
         session[:user][:entry] = entry
         flash[:error] = "Daten erfolgreich aktualisiert!"
       end
+      session[:last_params] = nil
     rescue
+      session[:last_params] = params
       flash[:error] = "Passwort stimmt nicht"
     end
 

@@ -1,2 +1,2 @@
-ldap_host: ldap.piratenfraktion-nrw.de
+ldap_host: ldap
 ldap_port: 636

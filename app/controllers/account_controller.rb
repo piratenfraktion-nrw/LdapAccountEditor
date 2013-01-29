@@ -47,17 +47,6 @@ class AccountController < ApplicationController
 
       throw "Passwort falsch" unless ldap.bind
 
-      password = '{SHA}' + Base64.encode64(Digest::SHA1.digest(params[:userPassword])).chomp!
-      if params[:newPassword] != "" 
-        if params[:newPassword] == params[:newPasswordRepeat]
-          password = '{SHA}' + Base64.encode64(Digest::SHA1.digest(params[:newPassword])).chomp!
-          @user[:userPassword] = params[:newPassword]
-        else
-          flash[:error] = "Passwort Wiederholung stimmt nicht überein"
-        end
-        op << [:replace, :userPassword, [password]]
-      end
-
       op = []
 
       Settings.sections.each do |section|

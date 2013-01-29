@@ -12,7 +12,7 @@
           <% values = @user_entry[field.name].length < 1 ? [""] : @user_entry[field.name] %> 
           <% values.each_with_index do |value,i| %>
             <% value = session[:last_params][field.name] unless session[:last_params].nil? %>
-            <tr>
+            <tr class="<%= field.hidden ? "hidden" : "" %>">
               <td><%= label_tag field.name, field.label %></td>
               <td>
                 <% if field.editable and !field.password %>

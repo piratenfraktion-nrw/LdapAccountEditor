@@ -1,2 +1,2 @@
-ldap_host: groupware
+ldap_host: groupware.pfnrw
 ldap_port: 636

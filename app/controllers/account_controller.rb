@@ -55,11 +55,10 @@ class AccountController < ApplicationController
         else
           flash[:error] = "Passwort Wiederholung stimmt nicht überein"
         end
+        op << [:replace, :userPassword, [password]]
       end
 
       op = []
-
-      op << [:replace, :userPassword, [password]]
 
       Settings.sections.each do |section|
         section.fields.each do |field|
@@ -82,6 +81,7 @@ class AccountController < ApplicationController
 
       ldap.search(:base => treebase, :filter => filter) do |entry|
         puts ldap.modify :dn => entry.dn, :operations => op
+        puts op.inspect
         puts "DN: #{entry.dn}"
         session[:user][:entry] = entry
         flash[:error] = "Daten erfolgreich aktualisiert!"

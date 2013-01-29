@@ -1,2 +1,2 @@
-ldap_host: localhost
-ldap_port: 6636
+ldap_host: groupware.pfnrw
+ldap_port: 636

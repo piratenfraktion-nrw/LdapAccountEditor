@@ -23,4 +23,4 @@ config/environments/*.local.yml
 *.ipr
 *.ids
 .idea
-
+*.swp

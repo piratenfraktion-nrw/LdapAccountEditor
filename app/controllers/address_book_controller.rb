@@ -16,7 +16,7 @@ class AddressBookController < ApplicationController
 
     throw "error" unless ldap.bind
 
-    filter = Net::LDAP::Filter.eq("objectClass", "inetOrgPerson")
+    filter = Net::LDAP::Filter.eq("objectClass", "piratenfraktion")
     treebase = "dc=piratenfraktion-nrw,dc=de"
 
     @users = []

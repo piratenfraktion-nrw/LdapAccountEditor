@@ -1,2 +1,2 @@
-ldap_host: groupware.pfnrw
+ldap_host: ldap.piratenfraktion-nrw.de
 ldap_port: 636

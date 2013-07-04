@@ -1,0 +1,259 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"nick",
+				"nickname"
+			],
+			[
+				"def",
+				"define"
+			],
+			[
+				"e",
+				"else"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"digit",
+				"digitalRead"
+			],
+			[
+				"in",
+				"include"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 132.0,
+		"selected_items":
+		[
+			[
+				"rails",
+				"Set Syntax: Ruby on Rails"
+			],
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"commit",
+				"Set Syntax: Git Commit Message"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 530.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/vileda/Projects/pfnrw/FraSiTimer/Gemfile",
+		"/home/vileda/Projects/pfnrw/FraSiTimer/app/models/fra_si.rb",
+		"/home/vileda/Projects/pfnrw/FraSiTimer/app/models/fra_si_speaker.rb",
+		"/home/vileda/Projects/pfnrw/FraSiTimer/app/models/fra_si_countdown.rb",
+		"/home/vileda/Projects/pfnrw/FraSiTimer/app/views/fra_si_countdown/edit.html.erb",
+		"/home/vileda/chef-repo/cookbooks/ssh-keys/attributes/default.rb",
+		"/home/vileda/Projects/pfnrw/utils/landtagWebToIcal/fetchEvents.rb",
+		"/home/vileda/chef-repo/cookbooks/pfnrw/recipes/default.rb",
+		"/home/vileda/chef-repo/cookbooks/pfnrw/metadata.rb",
+		"/home/vileda/chef-repo/.chef/knife.rb",
+		"/home/vileda/chef-repo/.gitignore",
+		"/home/vileda/Projects/fnordeingang/fnorddoor/irc.h",
+		"/home/vileda/Projects/fnordeingang/fnorddoor/Makefile",
+		"/home/vileda/Projects/fnordeingang/fnorddoor/door.cpp",
+		"/home/vileda/Projects/fnordeingang/fnorddoor/irc.cpp",
+		"/home/vileda/chef-repo/cookbooks/nagios/attributes/server.rb",
+		"/home/vileda/.i3status.conf",
+		"/home/vileda/.i3/config",
+		"/home/vileda/chef-repo/cookbooks/sudo/attributes/default.rb",
+		"/home/vileda/chef-repo/cookbooks/sudo/files/default/README",
+		"/home/vileda/chef-repo/cookbooks/users/recipes/sysadmins.rb",
+		"/home/vileda/Projects/fnordeingang/fnorddoor/door.c",
+		"/home/vileda/Projects/fnordeingang/fnorddoor/README.md",
+		"/home/vileda/Projects/fnordeingang/fnorddoor/closedoor.sh",
+		"/home/vileda/chef-repo/cookbooks/postfix/attributes/default.rb",
+		"/home/vileda/chef-repo/cookbooks/postfix/recipes/client.rb",
+		"/home/vileda/Projects/fnordeingang/fnorddoor/.gitignore",
+		"/home/vileda/chef-repo/.chef/pfnrw-validator.pem",
+		"/home/vileda/Projects/fnordeingang/fnorddoor/opendoor.sh",
+		"/home/vileda/Projects/pfnrw/blackout/index.html",
+		"/home/vileda/Projects/fnordeingang/fnorddoor/key.c",
+		"/home/vileda/Projects/fnordeingang/fnorddoor/gpio.c",
+		"/home/vileda/Projects/scripts/intraTermine2Ical/fetchEvents.rb",
+		"/home/vileda/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/vileda/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"]]",
+			"[[",
+			"const",
+			"u",
+			"]]",
+			")]]\n",
+			"* ",
+			"Erlaubt",
+			"signalButton"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"project": "accounteditor.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"rou",
+				"config/routes.rb"
+			],
+			[
+				"gpio.c",
+				"Projects/fnordeingang/fnorddoor/gpio.c"
+			],
+			[
+				"key.",
+				"Projects/fnordeingang/fnorddoor/key.c"
+			],
+			[
+				"fetch",
+				"Projects/pfnrw/utils/landtagWebToIcal/fetchEvents.rb"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/Projects/pfnrw/FraSiTimer/frasitimer.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 920.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 222.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

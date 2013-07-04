@@ -40,26 +40,31 @@ sections:
         editable: true
   - label: Deine Mail Adressen, für weniger oder mehr<br/>Adressen eine Mail an <a href="mailto:it@piratenfraktion-nrw.de">it@piratenfraktion-nrw.de</a> schreiben
     fields:
+      - name: zimbraMailDeliveryAddress
+        label: Primäre Adresse
+        editable: false
+        ldap_ignore: true
       - name: mail
         label: Mail
         editable: false
         ldap_ignore: true
-  #- label: ""
-  #  fields:
-  #    - name: newPassword
-  #      label: Neues Passwort
-  #      editable: true
-  #      ldap_ignore: true
-  #      addressbook_ignore: true
-  #      password: true
-  #      hidden: false
-  #    - name: newPasswordRepeat
-  #      label: Neues Passwort Wdh.
-  #      editable: true
-  #      ldap_ignore: true
-  #      addressbook_ignore: true
-  #      password: true
-  #      hidden: false
+        addressbook_ignore: true
+  - label: ""
+    fields:
+      - name: newPassword
+        label: Neues Passwort
+        editable: true
+        ldap_ignore: true
+        addressbook_ignore: true
+        password: true
+        hidden: false
+      - name: newPasswordRepeat
+        label: Neues Passwort Wdh.
+        editable: true
+        ldap_ignore: true
+        addressbook_ignore: true
+        password: true
+        hidden: false
   - label: Dein Passwort kannst du über den <a href="https://webmail.piratenfraktion-nrw.de">Zimbra Webmailer</a> ändern.<br/>Aktuelles Passwort zum ändern der Daten eingeben
     fields:
       - name: userPassword

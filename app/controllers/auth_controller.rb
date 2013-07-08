@@ -23,7 +23,7 @@ class AuthController < ApplicationController
         :auth => {
         :method => :simple,
         :username => "uid=#{@user[:uid]},ou=people,dc=piratenfraktion-nrw,dc=de",
-      :password => @user[:userPassword]
+        :password => @user[:userPassword]
       }
 
       throw "Passwort falsch" unless ldap.bind

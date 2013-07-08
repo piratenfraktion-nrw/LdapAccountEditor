@@ -11,7 +11,7 @@ class AddressBookController < ApplicationController
       :auth => {
       :method => :simple,
       :username => "uid=#{@user[:uid]},ou=people,dc=piratenfraktion-nrw,dc=de",
-    :password => @user[:userPassword]
+      :password => @user[:userPassword]
     }
 
     throw "error" unless ldap.bind

@@ -2,6 +2,10 @@ help_url: https://wiki.piratenfraktion-nrw.de/wiki/HowTo:IT/AccountEditor
 sections:
   - label: Deine Daten
     fields:
+      - name: uid
+        label: Benutzername
+        editable: false
+        ldap_ignore: true
       - name: cn
         label: Name
         editable: false
@@ -11,6 +15,7 @@ sections:
         editable: false
         ldap_ignore: true
         addressbook_ignore: true
+        required: true
       - name: sn
         label: Nachname
         editable: false
@@ -20,6 +25,7 @@ sections:
         label: Angezeigter Name
         editable: true
         addressbook_ignore: true
+        required: true
       - name: nick
         label: Nickname
         editable: true
@@ -29,6 +35,7 @@ sections:
       - name: telephoneNumber
         label: Telefon
         editable: true
+        required: true
       - name: facsimileTelephoneNumber
         label: Fax
         editable: true
@@ -74,3 +81,4 @@ sections:
         ldap_ignore: true
         addressbook_ignore: true
         password: true
+        required: true

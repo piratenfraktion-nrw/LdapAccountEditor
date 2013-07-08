@@ -35,7 +35,7 @@ class AuthController < ApplicationController
         @user[:entry] = entry
       end
       session[:user] = @user
-      redirect_to :controller => :account, :action => :show
+      redirect_back_or_default
     rescue
       flash[:error] = "Passwort und/oder Benutzer falsch"
       redirect_to :controller => :auth, :action => :login

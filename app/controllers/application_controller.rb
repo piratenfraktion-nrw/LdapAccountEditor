@@ -19,4 +19,15 @@ class ApplicationController < ActionController::Base
     end
     session[:return_to] = nil
   end
+
+  def ldap_connect(username, password)
+    return Net::LDAP.new :host => Settings.ldap_host,
+        :port => Settings.ldap_port,
+        :encryption => :simple_tls,
+        :auth => {
+        :method => :simple,
+        :username => "uid=#{username},ou=people,dc=piratenfraktion-nrw,dc=de",
+        :password => password
+      }
+  end
 end

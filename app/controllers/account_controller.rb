@@ -10,14 +10,7 @@ class AccountController < ApplicationController
   def show
     @user = session[:user]
     @user_entry = @user[:entry]
-    ldap = Net::LDAP.new :host => Settings.ldap_host,
-        :port => Settings.ldap_port,
-        :encryption => :simple_tls,
-        :auth => {
-        :method => :simple,
-        :username => "uid=#{@user[:uid]},ou=people,dc=piratenfraktion-nrw,dc=de",
-        :password => @user[:userPassword]
-      }
+    ldap = ldap_connect(@user[:uid], @user[:userPassword])
 
       filter = Net::LDAP::Filter.eq("uid", @user[:uid])
       treebase = "dc=piratenfraktion-nrw,dc=de"
@@ -36,14 +29,7 @@ class AccountController < ApplicationController
     session[:last_params] = nil
 
     begin
-      ldap = Net::LDAP.new :host => Settings.ldap_host,
-        :port => Settings.ldap_port,
-        :encryption => :simple_tls,
-        :auth => {
-        :method => :simple,
-        :username => "uid=#{@user[:uid]},ou=people,dc=piratenfraktion-nrw,dc=de",
-        :password => params[:userPassword]
-      }
+      ldap = ldap_connect(@user[:uid], params[:userPassword])
 
       throw "Passwort falsch" unless ldap.bind
 

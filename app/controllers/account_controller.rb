@@ -28,39 +28,23 @@ class AccountController < ApplicationController
     @user = session[:user]
     session[:last_params] = nil
 
+    a = Account.new
+
     begin
       ldap = ldap_connect(@user[:uid], params[:userPassword])
-
       throw "Passwort falsch" unless ldap.bind
 
-      op = []
+      a.update_attributes(params, @user)
 
-      Settings.sections.each do |section|
-        section.fields.each do |field|
-          if !field.ldap_ignore and field.name != "userPassword"
-            if params[field.name].present?
-              if @user[:entry][field.name].nil?
-                op << [:add, field.name, [params[field.name]]]
-              else
-                op << [:replace, field.name, [params[field.name]]]
-              end
-            elsif !params[field.name].present? and (@user[:entry][field.name].length > 0)
-              op << [:delete, field.name, nil]
-            end
-          end
-        end
+      savereturn = a.save(@user, ldap)
+
+      if savereturn[:success]
+        session[:user][:entry] = savereturn[:entry]
+        flash[:notice] = "Daten erfolgreich aktualisiert!"
+      else
+        flash[:error] = "Ungueltiger Wert im Feld " + savereturn[:errorfield]
       end
-
-      filter = Net::LDAP::Filter.eq("uid", @user[:uid])
-      treebase = "dc=piratenfraktion-nrw,dc=de"
-
-      ldap.search(:base => treebase, :filter => filter) do |entry|
-        puts ldap.modify :dn => entry.dn, :operations => op
-        puts op.inspect
-        puts "DN: #{entry.dn}"
-        session[:user][:entry] = entry
-        flash[:error] = "Daten erfolgreich aktualisiert!"
-      end
+      
       session[:last_params] = nil
     rescue
       session[:last_params] = params

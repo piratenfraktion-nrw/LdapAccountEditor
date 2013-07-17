@@ -22,7 +22,7 @@ class AddressBookController < ApplicationController
     @users = []
     ldap.search(:base => treebase, :filter => filter) do |entry|
       puts "DN: #{entry.dn}"
-      @users << entry
+      @users << entry if entry[:uid].length > 0
     end
 
 

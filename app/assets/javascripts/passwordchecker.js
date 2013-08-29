@@ -27,13 +27,15 @@ function checkPassword()
 		hasSpecialChar = true;
 	}
 
-	if (! $('#resultsElement').length)
+	if ($(this).val().length>0 && ! $('#resultsElement').length)
 	{
 		addResultsElement();
-	} else {
-		// console.log("resultsDiv is existing");
+	} else if ($(this).val().length === 0 && $('#resultsElement').length) {
+                $('#resultsElement').remove();
+                $('input[name=commit]').prop('disabled', false);
 	}
 
+        if ($(this).val().length>0) {
 	if (lengthOK)
 	{
 		$('#resultLength').html('<span class="good">✔</span> Das Passwort ist lang genug.');
@@ -58,9 +60,12 @@ function checkPassword()
 	if (lengthOK && hasLowerLetter && hasSpecialChar)
 	{
 		$('#resultAll').html('<span class="good">✔</span> <strong>Das Passwort entspricht den Richtlinien.</strong>');
+                $('input[name=commit]').prop('disabled', false);
 	} else {
 		$('#resultAll').html('<span class="bad">✖</span> <strong>Das Passwort entspricht nicht den Richtlinien.</strong>');
+                $('input[name=commit]').prop('disabled', true);
 	}
+        }
 }
 
 

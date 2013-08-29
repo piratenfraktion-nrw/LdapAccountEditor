@@ -7,11 +7,12 @@ function checkPassword()
 {
   // console.log('keyup event received');
 
+  var MINLENGTH = 10;
   var lengthOK = false;
   var hasLowerLetter = false;
   var hasSpecialChar = false;
 
-  if ($(this).val().length>7)				// Mindestlänge: 8 Zeichen
+  if ($(this).val().length>=MINLENGTH)				// Mindestlänge: MINLENGTH Zeichen
   {
     lengthOK = true;
   }

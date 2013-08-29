@@ -41,7 +41,7 @@ function checkPassword()
     {
       $('#resultLength').html('<span class="good">✔</span> Das Passwort ist lang genug.');
     } else {
-      $('#resultLength').html('<span class="bad">✖</span> Das Passwort muss eine Länge von mindestens 8 Zeichen haben.');
+      $('#resultLength').html('<span class="bad">✖</span> Das Passwort muss eine Länge von mindestens ' + MINLENGTH + ' Zeichen haben.');
     }
 
     if (hasLowerLetter)

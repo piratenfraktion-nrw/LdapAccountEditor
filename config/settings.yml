@@ -1,6 +1,6 @@
 help_url: https://wiki.piratenfraktion-nrw.de/wiki/HowTo:IT/AccountEditor
 sections:
-  - label: Deine Daten
+  - label: <p>Deine Accountdaten</p>
     fields:
       - name: uid
         label: Benutzername
@@ -45,7 +45,7 @@ sections:
       - name: roomNumber
         label: Raum
         editable: true
-  - label: Deine Mail Adressen, für weniger oder mehr<br/>Adressen eine Mail an <a href="mailto:it@piratenfraktion-nrw.de">it@piratenfraktion-nrw.de</a> schreiben
+  - label: <p>Deine aktuellen Emailadressen. Möchtest du an den Adressen etwas ändern, schreibe bitte eine Mail an <a href="mailto:it@piratenfraktion-nrw.de">it@piratenfraktion-nrw.de</a>.</p>
     fields:
       - name: zimbraMailDeliveryAddress
         label: Primäre Adresse
@@ -72,7 +72,7 @@ sections:
         addressbook_ignore: true
         password: true
         hidden: false
-  - label: Dein Passwort kannst du über den <a href="https://webmail.piratenfraktion-nrw.de">Zimbra Webmailer</a> ändern.<br/>Aktuelles Passwort zum ändern der Daten eingeben
+  - label: <p>Bitte gib dein Passwort ein, um die Änderung deiner Daten zu bestätigen.</p><p>Dein Passwort kannst du über den <a href="https://webmail.piratenfraktion-nrw.de">Zimbra Webmailer</a> ändern.</p>
     fields:
       - name: userPassword
         label: Passwort

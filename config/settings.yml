@@ -56,22 +56,6 @@ sections:
         editable: false
         ldap_ignore: true
         addressbook_ignore: true
-  - label: ""
-    fields:
-      - name: newPassword
-        label: Neues Passwort
-        editable: true
-        ldap_ignore: true
-        addressbook_ignore: true
-        password: true
-        hidden: false
-      - name: newPasswordRepeat
-        label: Neues Passwort Wdh.
-        editable: true
-        ldap_ignore: true
-        addressbook_ignore: true
-        password: true
-        hidden: false
   - label: <p>Bitte gib dein Passwort ein, um die Änderung deiner Daten zu bestätigen.</p><p>Dein Passwort kannst du über den <a href="https://webmail.piratenfraktion-nrw.de">Zimbra Webmailer</a> ändern.</p>
     fields:
       - name: userPassword

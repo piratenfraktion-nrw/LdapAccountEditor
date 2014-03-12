@@ -25,7 +25,18 @@ class AddressBookController < ApplicationController
       @users << entry if entry[:uid].length > 0
     end
 
-
-    render :show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render  :pdf => "piratenfraktion_adressbuch",
+                :print_media_type => false,
+                :book => false,
+                :layout => 'layouts/pdf.html.erb',
+                :no_background => true,
+                :grayscale => false,
+                :lowquality => false,
+                :orientation => 'Landscape'
+      end
+    end
   end
 end

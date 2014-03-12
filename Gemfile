@@ -46,3 +46,7 @@ end
 gem 'puma'
 
 gem 'debugger'
+
+gem 'wkhtmltopdf-binary'
+
+gem 'wicked_pdf'

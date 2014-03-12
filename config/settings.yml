@@ -6,6 +6,8 @@ sections:
         label: Benutzername
         editable: false
         ldap_ignore: true
+        addressbook_ignore: true
+        pdf_addressbook_ignore: true
       - name: cn
         label: Name
         editable: false
@@ -15,20 +17,24 @@ sections:
         editable: false
         ldap_ignore: true
         addressbook_ignore: true
+        pdf_addressbook_ignore: true
         required: true
       - name: sn
         label: Nachname
         editable: false
         ldap_ignore: true
         addressbook_ignore: true
+        pdf_addressbook_ignore: true
       - name: displayName
         label: Angezeigter Name
         editable: true
         addressbook_ignore: true
+        pdf_addressbook_ignore: true
         required: true
       - name: nick
         label: Nickname
         editable: true
+        pdf_addressbook_ignore: true
       - name: description
         label: Beschreibung
         editable: true
@@ -39,9 +45,11 @@ sections:
       - name: facsimileTelephoneNumber
         label: Fax
         editable: true
+        pdf_addressbook_ignore: true
       - name: mobile
         label: Handy
         editable: true
+        pdf_addressbook_ignore: true
       - name: roomNumber
         label: Raum
         editable: true
@@ -56,6 +64,7 @@ sections:
         editable: false
         ldap_ignore: true
         addressbook_ignore: true
+        pdf_addressbook_ignore: true
   - label: ""
     fields:
       - name: newPassword
@@ -63,6 +72,7 @@ sections:
         editable: true
         ldap_ignore: true
         addressbook_ignore: true
+        pdf_addressbook_ignore: true
         password: true
         hidden: false
       - name: newPasswordRepeat
@@ -70,6 +80,7 @@ sections:
         editable: true
         ldap_ignore: true
         addressbook_ignore: true
+        pdf_addressbook_ignore: true
         password: true
         hidden: false
   - label: Dein Passwort kannst du über den <a href="https://webmail.piratenfraktion-nrw.de">Zimbra Webmailer</a> ändern.<br/>Aktuelles Passwort zum ändern der Daten eingeben
@@ -80,5 +91,6 @@ sections:
         ignore_value: true
         ldap_ignore: true
         addressbook_ignore: true
+        pdf_addressbook_ignore: true
         password: true
         required: true
